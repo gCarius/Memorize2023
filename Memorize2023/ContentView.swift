@@ -15,8 +15,9 @@ let theme3: Array<String> = ["🐶","🐱","🐭","🐹","🐰","🦊","🐻","�
 struct ContentView: View {
     @State var emojis = theme1
     @State var cardCount = 14
-    @State var themeColor = Color(red: 0, green: 0.3, blue: 1, opacity: 0.25)
+    @State var themeColor = Color(red: 0, green: 0, blue: 0, opacity: 0.25)
     
+    // The structurized core of the app
     var body: some View {
         Text("Memorize!").font(.largeTitle).foregroundStyle(themeColor).fontWeight(.bold)
         VStack {
@@ -28,9 +29,8 @@ struct ContentView: View {
         .padding()
     }
     
+    // The view of how cards are structured on screen
     var cards: some View {
-        // creates a vertically scrollable collection of views
-        // lazy implies that the views are only created when SwiftUI needs to display them
         LazyVGrid (columns: [GridItem(.adaptive(minimum: CGFloat(220 / sqrt(CGFloat(cardCount) * 1.3))))]) {
             ForEach(0..<cardCount, id: \.self) { index in
                 CardView(content: emojis[index])
@@ -41,6 +41,7 @@ struct ContentView: View {
         .foregroundStyle(themeColor)
     }
     
+    // The button Section "bar"
     var themeButtonsSection: some View {
         HStack {
             themeButton("Vehicles", symbol: "car")
@@ -54,12 +55,13 @@ struct ContentView: View {
         .foregroundStyle(themeColor)
     }
     
+    // The functions for the buttons
     func themeButton(_ choice: String, symbol: String) -> some View {
         Button(action: {
             switch choice {
             case "Vehicles":
                 emojis = theme1.shuffled()
-                themeColor = Color.gray
+                themeColor = Color.red
                 cardCount = Int.random(in: 2..<emojis.count)
             case "Shopping":
                 emojis = theme2.shuffled()
@@ -80,9 +82,10 @@ struct ContentView: View {
             }
         })
     }
-    
 }
 
+
+// The base initilaizers of the cards
 struct CardView: View {
     let content: String
     @State var isFaceUp = false
