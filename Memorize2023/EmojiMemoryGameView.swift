@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  EmojiMemoryGameView.swift
 //  Memorize
 //
 //  Created by Ruban on 2024-02-10.
@@ -7,21 +7,15 @@
 
 import SwiftUI
 
-let theme1: Array<String> = ["🚗","🚕","🚙","🚌","🚎","🏎️","🚓","🚑","🚒","🚚","🚛","🚜","✈️","🚁","🚂","🚤"]
-let theme2: Array<String> = ["🛍️","🛒","🏬","💳","🧾","💰","💸","💵","📦","🏷️","🪙","🧺","🏪","🛎️","💲","🪪"]
-let theme3: Array<String> = ["🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🐨","🐯","🦁","🐮","🐷","🐸","🐵","🦉"]
-
-
-struct ContentView: View {
-    @State var emojis = theme1
-    @State var cardCount = 14
+struct EmojiMemoryGameView: View {
+    @State var emojis = ["A", "B"]
+    @State var cardCount = 2
     @State var themeColor = Color(red: 0, green: 0, blue: 0, opacity: 0.25)
     
     // The structurized core of the app
     var body: some View {
         Text("Memorize!").font(.largeTitle).foregroundStyle(themeColor).fontWeight(.bold)
         VStack {
-            // Allows for user to scroll
             ScrollView { cards }
             Spacer()
             themeButtonsSection
@@ -107,5 +101,5 @@ struct CardView: View {
 }
 
 #Preview {
-    ContentView()
+    EmojiMemoryGameView()
 }
