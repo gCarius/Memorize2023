@@ -11,7 +11,7 @@ import SwiftUI
 //let theme3: Array<String> = ["🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🐨","🐯","🦁","🐮","🐷","🐸","🐵","🦉"]
 
 class EmojiMemoryGame: ObservableObject {
-    static var emojis = ["🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🐨","🐯","🦁","🐮","🐷","🐸","🐵","🦉"]
+    static var emojis = ["🛍️","🛒","🏬","💳","🧾","💰","💸","💵","📦","🏷️","🪙","🧺","🏪","🛎️","💲","🪪"]
     
     static func createMemoryGame() -> MemoryGame<String>{
         return  MemoryGame( numberOfPairOfCards: 6) { pairIndex in //cardContentFactory
