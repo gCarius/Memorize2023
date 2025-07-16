@@ -9,6 +9,8 @@ import Foundation
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
     private(set) var cards: Array<Card> //Visible variable privately mutable
+    private(set) var score: Int = 0
+    private var checkOAOCard: Bool = false
     
     init (numberOfPairOfCards: Int, cardContentFactory: (Int) -> CardContent) { // cardContentFactory is a fucntion (FUNCTIONAL PROGRAMMING)
         cards = []
@@ -33,14 +35,32 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                     if cards[chosenIndex].content == cards[potentialMatch].content {
                         cards[chosenIndex].isMatched = true
                         cards[potentialMatch].isMatched = true
+                        score += 2
+                        checkOAOCard = false
+                    } else {
+                        deductScore(chosenIndex, potentialMatch)
+                        checkOAOCard = false
                     }
                 } else {
                     indexOfTheOneAndOnlyFaceUpCard = chosenIndex
+                    if cards[chosenIndex].isSelected {
+                        checkOAOCard = true
+                    }
                 }
                 cards[chosenIndex].isFaceUp = true
             }
+            cards[chosenIndex].isSelected = true
         }
     }
+    
+    mutating private func deductScore(_ chosenIndex: Int, _ potentialMatchIndex: Int) {
+            if cards[chosenIndex].isSelected{
+                score -= 1
+            }
+            if cards[potentialMatchIndex].isSelected && checkOAOCard {
+                score -= 1
+            }
+        }
     
     mutating func shuffle() {
         cards.shuffle()
@@ -53,6 +73,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         
         var isFaceUp = false
         var isMatched = false
+        var isSelected = false
         let content: CardContent
         
         var id: String
