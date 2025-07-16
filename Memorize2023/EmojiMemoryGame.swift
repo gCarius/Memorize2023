@@ -6,25 +6,35 @@
 //
 
 import SwiftUI
-//let theme1: Array<String> = ["🚗","🚕","🚙","🚌","🚎","🏎️","🚓","🚑","🚒","🚚","🚛","🚜","✈️","🚁","🚂","🚤"]
-//let theme2: Array<String> = ["🛍️","🛒","🏬","💳","🧾","💰","💸","💵","📦","🏷️","🪙","🧺","🏪","🛎️","💲","🪪"]
-//let theme3: Array<String> = ["🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🐨","🐯","🦁","🐮","🐷","🐸","🐵","🦉"]
 
 class EmojiMemoryGame: ObservableObject {
-    static var emojis = ["🛍️","🛒","🏬","💳","🧾","💰","💸","💵","📦","🏷️","🪙","🧺","🏪","🛎️","💲","🪪"]
+    @Published private var model: MemoryGame<String>
+    private(set) var theme: ThemeDB.Theme
+    private(set) var numberOfPairsOfCards: Int
     
-    static func createMemoryGame() -> MemoryGame<String>{
-        return  MemoryGame( numberOfPairOfCards: 6) { pairIndex in //cardContentFactory
-            if emojis.indices.contains(pairIndex) {
-                return emojis[pairIndex]
+    init () {
+        let randomId = Int.random(in: 0..<5)
+        numberOfPairsOfCards = 8
+        theme = ThemeDB().chooseTheme(id: randomId, numOfPairs: numberOfPairsOfCards)
+        model = EmojiMemoryGame.createMemoryGame(theme: theme)
+        model.shuffle()
+    }
+    
+    static func createMemoryGame(theme : ThemeDB.Theme) -> MemoryGame<String>{
+        return  MemoryGame( numberOfPairOfCards: theme.numberOfPairs ) { pairIndex in //cardContentFactory
+            if theme.emoji.indices.contains(pairIndex) {
+                return theme.emoji[pairIndex]
             } else {
                 return "⁉️"
             }
         }
     }
-
     
-    @Published private var model = EmojiMemoryGame.createMemoryGame()
+    var score: Int {
+        model.score
+    }
+
+
     
     var cards: Array<MemoryGame<String>.Card> {
         return model.cards
@@ -38,6 +48,22 @@ class EmojiMemoryGame: ObservableObject {
     
     func choose(_ card: MemoryGame<String>.Card) {
         model.choose(card: card)
+    }
+    
+    func newGame() {
+        let randomId = Int.random(in: 0..<5)
+        numberOfPairsOfCards = Int.random(in: 0..<12)
+        theme = ThemeDB().chooseTheme(id: randomId, numOfPairs: numberOfPairsOfCards)
+        // TODO: Fix the emojis "dead" situation, dont use a separate array maybe put inside create memory game
+        //let buffer = 12 - numberOfPairsOfCards - 1
+        //emojis = Array(theme.emoji[buffer..<buffer+numberOfPairsOfCards])
+
+        model = EmojiMemoryGame.createMemoryGame(theme: theme)
+        model.shuffle()
+        
+        
+        
+        
     }
 }
 
