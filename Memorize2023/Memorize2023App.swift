@@ -14,6 +14,7 @@ struct Memorize2023App: App {
     var body: some Scene {
         WindowGroup {
             EmojiMemoryGameView(viewModel: game)
+            .preferredColorScheme(.light)
         }
     }
 }

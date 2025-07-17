@@ -30,6 +30,7 @@ struct EmojiMemoryGameView: View {
         }
         .padding()
     }
+        
     
     private var score: some View {
         Text("Score: \(viewModel.score)")
