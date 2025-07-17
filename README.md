@@ -6,7 +6,8 @@ This project was built as part of Stanford’s CS193p course — my first hands-
 ---
 ## 🚀 Features
 
-- 🎴 Flip-to-match memory game with animated card transitions  
+- 🎴 Flip-to-match memory game with animated card transitions
+- 💯 Multi-scoring system (match + time)  
 - 🎨 Multiple emoji themes (Animals, Faces, Flags, etc.)  
 - 📱 Responsive layout using SwiftUI  
 
