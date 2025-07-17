@@ -4,12 +4,6 @@ A simple and clean memory card game for iOS, developed using SwiftUI.
 This project was built as part of Stanford’s CS193p course — my first hands-on experience with Swift and Xcode.
 
 ---
-
-## 📱 Demo
-
-[(https://github.com/user-attachments/assets/9fd40b80-6a9f-42e0-a2de-1747da436eba)](https://github.com/user-attachments/assets/9fd40b80-6a9f-42e0-a2de-1747da436eba)
-
----
 ## 🚀 Features
 
 - 🎴 Flip-to-match memory game with animated card transitions  
@@ -37,3 +31,9 @@ This project was built as part of Stanford’s CS193p course — my first hands-
 
 - Add sounds and animations for better feedback  
 - Store high scores using Core Data or UserDefaults  
+
+---
+
+## 📱 Demo
+
+[(https://github.com/user-attachments/assets/9fd40b80-6a9f-42e0-a2de-1747da436eba)](https://github.com/user-attachments/assets/9fd40b80-6a9f-42e0-a2de-1747da436eba)
