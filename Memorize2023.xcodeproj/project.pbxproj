@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		E29228422E29837000223095 /* FlyingNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29228412E29837000223095 /* FlyingNumber.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		E236808D2DD3A290005C9401 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -31,7 +27,6 @@
 		E236807F2DD3A28D005C9401 /* Memorize2023.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize2023.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E236808C2DD3A290005C9401 /* Memorize2023Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Memorize2023Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23680962DD3A290005C9401 /* Memorize2023UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Memorize2023UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E29228412E29837000223095 /* FlyingNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyingNumber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -80,7 +75,6 @@
 		E23680762DD3A28D005C9401 = {
 			isa = PBXGroup;
 			children = (
-				E29228412E29837000223095 /* FlyingNumber.swift */,
 				E23680812DD3A28D005C9401 /* Memorize2023 */,
 				E236808F2DD3A290005C9401 /* Memorize2023Tests */,
 				E23680992DD3A290005C9401 /* Memorize2023UITests */,
@@ -242,7 +236,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E29228422E29837000223095 /* FlyingNumber.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
