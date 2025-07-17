@@ -6,7 +6,8 @@ This project was built as part of Stanford’s CS193p course — my first hands-
 ---
 
 ## 📱 Demo
-[![Watch the video](https://i.sstatic.net/Vp2cE.png)](https://youtu.be/vt5fpE0bzSY)
+[![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://youtu.be/T-D1KVIuvjA)
+
 
 ---
 ## 🚀 Features
