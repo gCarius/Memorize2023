@@ -1,6 +1,8 @@
 # 🧠 Memorize – A SwiftUI Memory Card Game
+
 A simple and clean memory card game for iOS, developed using SwiftUI.
 This project was built as part of Stanford’s CS193p course — my first hands-on experience with Swift and Xcode.
+
 ---
 
 ## 📱 Demo
