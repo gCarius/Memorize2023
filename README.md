@@ -7,8 +7,9 @@ This project was built as part of Stanford’s CS193p course — my first hands-
 
 ## 📱 Demo
 
-(https://github.com/user-attachments/assets/9fd40b80-6a9f-42e0-a2de-1747da436eba)
+[(https://github.com/user-attachments/assets/9fd40b80-6a9f-42e0-a2de-1747da436eba)](https://github.com/user-attachments/assets/9fd40b80-6a9f-42e0-a2de-1747da436eba)
 
+https://github-production-user-asset-6210df.s3.amazonaws.com/90915391/467791043-9fd40b80-6a9f-42e0-a2de-1747da436eba.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250717%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250717T234058Z&X-Amz-Expires=300&X-Amz-Signature=9b7023c501673e3fedfa303db7515823abaa47c60fc558f8fddb16327f26665c&X-Amz-SignedHeaders=host
 ---
 ## 🚀 Features
 
