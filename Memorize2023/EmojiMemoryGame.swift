@@ -52,13 +52,9 @@ class EmojiMemoryGame: ObservableObject {
     }
     
     func newGame() {
-        let randomId = Int.random(in: 0..<5)
+        let randomId = Int.random(in: 0..<6)
         numberOfPairsOfCards = Int.random(in: 0..<12)
         theme = ThemeDB().chooseTheme(id: randomId, numOfPairs: numberOfPairsOfCards)
-        // TODO: Fix the emojis "dead" situation, dont use a separate array maybe put inside create memory game
-        //let buffer = 12 - numberOfPairsOfCards - 1
-        //emojis = Array(theme.emoji[buffer..<buffer+numberOfPairsOfCards])
-
         model = EmojiMemoryGame.createMemoryGame(theme: theme)
         model.shuffle()
         
