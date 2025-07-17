@@ -15,7 +15,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     init (numberOfPairOfCards: Int, cardContentFactory: (Int) -> CardContent) { // cardContentFactory is a fucntion (FUNCTIONAL PROGRAMMING)
         cards = []
         // add numberOfPairOfCards x 2 cards
-        for pairIndex in 0..<max(2,numberOfPairOfCards) {
+        for pairIndex in 0..<max(2,2) { //TODO: for pairIndex in 0..<max(2,numberOfPairOfCards)
             let content = cardContentFactory(pairIndex)
             cards.append(Card(content: content, id: "\(pairIndex+1)a"))
             cards.append(Card(content: content, id: "\(pairIndex+1)b"))
@@ -71,7 +71,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
             "\(id): \(content)\(isFaceUp ? "up" : "down"), \(isMatched ? "matched" : "unmatched")"
         }
         
-        var isFaceUp = false
+        var isFaceUp = true // TODO: switch to false
         var isMatched = false
         var isSelected = false
         let content: CardContent

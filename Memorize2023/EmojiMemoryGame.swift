@@ -9,6 +9,7 @@ import SwiftUI
 
 class EmojiMemoryGame: ObservableObject {
     @Published private var model: MemoryGame<String>
+    
     private(set) var theme: ThemeDB.Theme
     private(set) var numberOfPairsOfCards: Int
     
