@@ -7,81 +7,64 @@
 
 import SwiftUI
 
+typealias Card = CardView.Card
+
 struct CardView: View {
     typealias Card = MemoryGame<String>.Card
     let card: Card
     
-    init(_ card: Card) {
+    init(_ card: MemoryGame<String>.Card) {
         self.card = card
     }
     
-    private struct Constants {
-        static let cornerRadius: CGFloat = 12
-        static let lineWidth: CGFloat = 4
-        static let inset: CGFloat = 5
-        struct FontSize {
-            static let largets: CGFloat = 200
-            static let smallest: CGFloat = 10
-            static let scaleFactor = smallest / largets
-            
-        }
-        struct Pie {
-            static let inset: CGFloat = 5
-            static let opacity: CGFloat = 0.4
-            
-            
-        }
-        
-    }
-    
     var body: some View {
-        ZStack {
-            let base = RoundedRectangle(cornerRadius: Constants.cornerRadius)
-            Group {
-                
-                base.fill(.white)
-                base.strokeBorder(lineWidth: Constants.lineWidth)
-                
-                Pie(endAngle: .degrees(350), )
+        TimelineView(.animation) {timeline in
+            if card.isFaceUp || !card.isMatched {
+                Pie(endAngle: .degrees(card.bonusPercentRemaining * 360))
                     .opacity(Constants.Pie.opacity)
                     .overlay(
                         Text(card.content)
-                            .font(.system(size: Constants.FontSize.largets))
+                            .font(.system(size: Constants.FontSize.largest))
                             .minimumScaleFactor(Constants.FontSize.scaleFactor)
                             .multilineTextAlignment(.center)
                             .aspectRatio(1, contentMode: .fit)
-                            .padding(Constants.inset)
+                            .padding(Constants.Pie.inset)
                     )
-                    .padding(Constants.Pie.inset)
-                    
-                
+                    .padding(Constants.inset)
+                    .cardify(isFaceUp: card.isFaceUp)
+                    .transition(.scale)
+            } else {
+                Color.clear
             }
-            .opacity(card.isFaceUp ? 1:0)
-            base.fill().opacity(card.isFaceUp ? 0:1)
+            
         }
-        .opacity(card.isFaceUp || !card.isMatched ? 1:0)
+    }
+    
+    private struct Constants {
+        static let inset: CGFloat = 5
+        struct FontSize {
+            static let largest: CGFloat = 200
+            static let smallest: CGFloat = 10
+            static let scaleFactor = smallest / largest
+        }
+        struct Pie {
+            static let opacity: CGFloat = 0.4
+            static let inset: CGFloat = 5
+        }
     }
 }
 
-
-struct CardView_Previews: PreviewProvider {
-    typealias Card = MemoryGame<String>.Card
-    
-    static var previews: some View {
-        VStack {
-            HStack {
-                CardView(Card(isFaceUp: true, content: "👻", id: "test"))
-                CardView(Card(isFaceUp: true, content: "👻", id: "test"))
-            }
-            HStack {
-                CardView(Card(isFaceUp: true, content: "☠", id: "test"))
-                CardView(Card(isFaceUp: true, content: "☠", id: "test"))
-            }
+#Preview {
+    VStack {
+        HStack {
+            CardView(Card(isFaceUp: true, content: "X", id: "test1"))
+            CardView(Card(content: "X", id: "test1"))
         }
-        .padding(20)
-        .foregroundStyle(.green)
-
-        
+        HStack {
+            CardView(Card(isFaceUp: true, content: "This is a very long string blah blah blah", id: "test1"))
+            CardView(Card(content: "X", id: "test1"))
+        }
     }
-    
+    .padding()
+    .foregroundColor(.blue)
 }
